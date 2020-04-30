@@ -69,3 +69,5 @@ int main() {
     cout << ks(n, capacity);
 
 }
+
+// http://www.shafaetsplanet.com/?p=3638
