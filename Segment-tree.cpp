@@ -1,68 +1,127 @@
+/*
+Segment tree
+*/
 
-// segment tree :D
-// http://lightoj.com/volume_showproblem.php?problem=1082
-// 1082 - Array Queries
 
-#pragma comment(linker, "/stack:200000000")
-#pragma GCC target ("avx2")
-#pragma GCC optimization ("O3")
-#pragma GCC optimization ("unroll-loops")
-#pragma GCC optimize("Ofast")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+
 
 #include <bits/stdc++.h>
-
-#define N   100000
-#define fastio                              ios_base::sync_with_stdio(NULL); cin.tie(NULL); cout.tie(NULL);
-
+#define MAX         11
+#define nl          '\n'
 using namespace std;
 
-int tree[4*N];
-int arr[4*N];
+int arr[MAX] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int tree[4*MAX];
 
-void init(int node, int b, int e) {
+
+// sum
+
+void initSUM(int node, int b, int e) { // initializing for sum of range [i, j]
     if(b == e) {
         tree[node] = arr[b];
         return;
     }
+
     int left = node*2;
     int right = left+1;
     int mid = (b + e)/2;
-    init(left, b, mid);
-    init(right, mid+1, e);
+    initSUM(left, b, mid);
+    initSUM(right, mid+1, e);
 
-    tree[node] = min(tree[left], tree[right]);
-
+    tree[node] = tree[left] + tree[right];
 }
 
-int query(int node, int b, int e, int i, int j) {
-    if(e < i or b > j) return INT_MAX;
-    if(b >= i and e <= j) return tree[node];
+int querySUM(int node, int b, int e, int i, int j) { // sum := [i, j] query
+    if(e < i or b > j) return 0;
+    else if(i <= b and e <= j) return tree[node];
 
     int left = node*2;
     int right = left+1;
     int mid = (b + e)/2;
-    int q1 = query(left, b, mid, i, j);
-    int q2 = query(right, mid+1, e, i, j);
+    int q1 = querySUM(left, b, mid, i, j);
+    int q2 = querySUM(right, mid+1, e, i, j);
+
+    return q1 + q2;
+}
+
+
+
+
+// min in range
+
+void initMIN(int node, int b, int e) { // initializing for min of range [i, j]
+    if(b == e) {
+        tree[node] = arr[b];
+        return;
+    }
+
+    int left = node*2;
+    int right = left+1;
+    int mid = (b + e)/2;
+    initMIN(left, b, mid);
+    initMIN(right, mid+1, e);
+
+    tree[node] = min(tree[left], tree[right]);
+}
+
+int queryMIN(int node, int b, int e, int i, int j) { // MIN := [i, j] query
+    if(e < i or b > j) return INT_MAX;
+    else if(i <= b and e <= j) return tree[node];
+
+    int left = node*2;
+    int right = left+1;
+    int mid = (b + e)/2;
+    int q1 = queryMIN(left, b, mid, i, j);
+    int q2 = queryMIN(right, mid+1, e, i, j);
 
     return min(q1, q2);
 }
 
-int main() {
-    fastio;
-    int t; cin >> t;
-    for(int tc = 1; tc <= t; tc++) {
-        int n, q, l, r;
-        cin >> n >> q;
-        for(int i = 1; i <= n; i++) cin >> arr[i];
-        init(1, 1, n);
-        printf("Case %d:\n", tc);
-        while(q--) {
-            cin >> l >> r;
-            printf("%d\n", query(1, 1, n, l, r));
-        }
+
+
+
+
+// max in range
+
+
+void initMAX(int node, int b, int e) { // initializing for max of range [i, j]
+    if(b == e) {
+        tree[node] = arr[b];
+        return;
     }
+
+    int left = node*2;
+    int right = left+1;
+    int mid = (b + e)/2;
+    initMAX(left, b, mid);
+    initMAX(right, mid+1, e);
+
+    tree[node] = max(tree[left], tree[right]);
+}
+
+int queryMAX(int node, int b, int e, int i, int j) { // MAX := [i, j] query
+    if(e < i or b > j) return (-1)*INT_MAX;
+    else if(i <= b and e <= j) return tree[node];
+
+    int left = node*2;
+    int right = left+1;
+    int mid = (b + e)/2;
+    int q1 = queryMAX(left, b, mid, i, j);
+    int q2 = queryMAX(right, mid+1, e, i, j);
+
+    return max(q1, q2);
+}
+
+
+int main() {
+    // initSUM(1, 1, MAX);
+    // cout << querySUM(1, 1, MAX, 5, 7) << '\n';
+
+    // initMIN(1, 1, MAX);
+    // cout << queryMIN(1, 1, MAX, 4, 7) << '\n';
+
+    initMAX(1, 1, MAX);
+    cout << queryMAX(1, 1, MAX, 4, 7) << '\n';
     
 
 }
-//
