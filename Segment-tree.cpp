@@ -1,12 +1,20 @@
 
 // segment tree :D
-
 // http://lightoj.com/volume_showproblem.php?problem=1082
-// lightoj 1082 - Array queries
-// TLE though xD but works
+// 1082 - Array Queries
+
+#pragma comment(linker, "/stack:200000000")
+#pragma GCC target ("avx2")
+#pragma GCC optimization ("O3")
+#pragma GCC optimization ("unroll-loops")
+#pragma GCC optimize("Ofast")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 
 #include <bits/stdc++.h>
+
 #define N   100000
+#define fastio                              ios_base::sync_with_stdio(NULL); cin.tie(NULL); cout.tie(NULL);
+
 using namespace std;
 
 int tree[4*N];
@@ -41,6 +49,7 @@ int query(int node, int b, int e, int i, int j) {
 }
 
 int main() {
+    fastio;
     int t; cin >> t;
     for(int tc = 1; tc <= t; tc++) {
         int n, q, l, r;
