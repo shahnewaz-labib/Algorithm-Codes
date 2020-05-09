@@ -1,9 +1,16 @@
-#include <bits/stdc++.h>
-using namespace std;
-int  n = 10;
 
-int tree[40];
-int arr[11] = {0, 3, 6, 1, 7, 3, 8, 3, 4, 6, 10};
+// segment tree :D
+
+// http://lightoj.com/volume_showproblem.php?problem=1082
+// lightoj 1082 - Array queries
+// TLE though xD but works
+
+#include <bits/stdc++.h>
+#define N   100000
+using namespace std;
+
+int tree[4*N];
+int arr[4*N];
 
 void init(int node, int b, int e) {
     if(b == e) {
@@ -34,10 +41,19 @@ int query(int node, int b, int e, int i, int j) {
 }
 
 int main() {
-
-    init(1, 1, n);
-
-    cout << query(1, 1, n, 1, 2);
+    int t; cin >> t;
+    for(int tc = 1; tc <= t; tc++) {
+        int n, q, l, r;
+        cin >> n >> q;
+        for(int i = 1; i <= n; i++) cin >> arr[i];
+        init(1, 1, n);
+        printf("Case %d:\n", tc);
+        while(q--) {
+            cin >> l >> r;
+            printf("%d\n", query(1, 1, n, l, r));
+        }
+    }
+    
 
 }
 //
