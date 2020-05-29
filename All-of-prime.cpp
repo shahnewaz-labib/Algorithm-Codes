@@ -78,3 +78,32 @@ int main() {
 
 */
 
+
+
+
+
+// bitwise sieve
+// resource video: https://youtu.be/ytxsaKqAPng
+/*
+bitset<1000000> bs;
+vector<int> primes;
+
+void sieve(ll upper_bound) {
+    bs.set();
+    bs[0] = bs[1] = 0;
+    primes.pb(2);
+    for(ll i = 3; i <= upper_bound + 1; i += 2)
+        if(bs[i]) {
+            for(ll j = i*i; j <= upper_bound; j += i)
+                bs[j] = 0;
+            primes.pb((int) i);
+        }
+}
+
+int main() {
+    sieve(1000000);
+    for(int i = 0; i < 100; i++)
+        cout << primes[i] << nl;
+}
+
+*/
