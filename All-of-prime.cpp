@@ -1,3 +1,5 @@
+// YT resource: https://youtu.be/ykZvMA-8S6s
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,6 +26,8 @@ void sieve() {
 int main() { }
 
 // Segmented sieve
+// problem link: https://www.spoj.com/problems/PRIME1/
+// resource video: https://youtu.be/ykZvMA-8S6s
 /*
 const int N = 32000;
 
