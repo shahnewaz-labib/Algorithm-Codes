@@ -1,1 +1,56 @@
-// knuth morris pratt algorithm
+// knuth morris pratt string matching algorithm
+// link: https://youtu.be/sMARZCTPyNI
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> lpsGen(string pattern) {
+    int len = pattern.size();
+    vector<int> lps(len);
+    int index = 0, i = 1;
+    while(i < len) {
+        if(pattern[index] == pattern[i]) {
+            lps[i] = index+1;
+            index++, i++;
+        } else {
+            if(index != 0) index = lps[index-1];
+            else lps[i] = index, i++;
+        }
+    }
+
+    return lps;
+}
+
+void kmp(string text, string pattern) {
+    bool found = false;
+    vector<int> lps = lpsGen(pattern);
+    int i = 0, j = 0;
+    // i -> text
+    // j -> pattern
+    int text_len = text.size(), pattern_len = pattern.size();
+    while(i < text_len) {
+        if(text[i] == pattern[j]) {
+            i++;
+            j++;
+        } else {
+            if(j != 0) j = lps[j-1];
+            else i++;
+        }
+
+        if(j == pattern_len) {
+            found = true;
+            cout << "found\n";
+            cout << "index : " << (i - pattern_len) << '\n';
+            j = lps[j-1]; // search again
+        }
+    }
+
+    if(!found) cout << "not found\n";
+}
+
+int main() {
+    string pattern, text;
+    cin >> text >> pattern;
+    kmp(text, pattern);
+}
