@@ -1,6 +1,6 @@
 // knuth morris pratt string matching algorithm
 // link: https://youtu.be/sMARZCTPyNI
-
+// https://gist.github.com/dipta10/4658935c9f119fb7db966ba467c8dd7f
 
 #include <bits/stdc++.h>
 using namespace std;
