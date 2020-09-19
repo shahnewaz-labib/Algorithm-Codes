@@ -31,9 +31,9 @@ int GETnCr(int n, int r) {
     else if(r == 0) result = 1;
     else result = GETnCr(n-1, r) + GETnCr(n-1, r-1);
 
-    dp[n][r] = result;
+    arr[n][r] = result;
 
-    return dp[n][r];
+    return arr[n][r];
 
 }
 
