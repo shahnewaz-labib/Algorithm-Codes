@@ -3,7 +3,7 @@
 Algorithm Implementations.
 
 **Map**
-    - Graph
+    1 Graph
         - bfs.cpp
         - bfs_on_grid.cpp
         - dfs.cpp
