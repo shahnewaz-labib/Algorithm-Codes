@@ -1,7 +1,7 @@
 /*
 Name: Depth First Search
 Time Complexity:
-    * O(V+E), V is bumber of vertices, E is number of edges
+    * O(V+E), V is number of vertices, E is number of edges
 Space Complexity:
     * O(H), H is the maximum height of the tree
 */

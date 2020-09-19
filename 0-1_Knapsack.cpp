@@ -11,7 +11,7 @@ using namespace std;
 
 int dp[2010][2010];
 vector<int> value, weight; // weight = {0, ...};
-                           // value - {0, ...};
+                           // value = {0, ...};
 
 int ks(int n, int capacity) {
     if(dp[n][capacity] != -1) return dp[n][capacity];
