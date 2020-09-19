@@ -2,6 +2,11 @@
 Read about catalan numebrs:
 1. https://brilliant.org/wiki/catalan-numbers/
 2. https://www.geeksforgeeks.org/applications-of-catalan-numbers/
+3. https://en.wikipedia.org/wiki/Catalan_number
+4. http://mathworld.wolfram.com/CatalanNumber.html
+5. http://www-groups.dcs.st-and.ac.uk/history/Miscellaneous/CatalanNumbers/catalan.html
+6. http://www.mhhe.com/math/advmath/rosen/r5/instructor/applications/ch07.pdf
+7. https://oeis.org/A000108
 */
 
 #include <iostream>
