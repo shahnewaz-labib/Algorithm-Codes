@@ -1,3 +1,21 @@
+/*
+Name: Bubble Sort
+Time Complexity:
+    * Best: O(n)
+    * Average: O(n^2)
+    * Worst: O(n^2)
+Space Complexity:
+    * O(n) total, O(1) auxiliary
+*/
+
+/*
+Bubble Sort is an elementary sorting algorithm.
+It works by repeatedly exchanging adjacent elements, if necessary.
+When no exchanges are required, the file is sorted.
+*/
+
+// Resource: http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/bubbleSort.htm
+
 #include <iostream>
 using namespace std;
 
