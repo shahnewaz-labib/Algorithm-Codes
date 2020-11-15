@@ -17,6 +17,20 @@ gets shifted right by one card.
 
 // Resource: http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/insertionSort.htm
 
+/* procedure insertion sort(a1, a2, ...an: real numbers with n >= 2)
+ * for i := 2 to n
+ * 	key = ai
+ * 	j = i-1
+ * 	while j >= 0 and aj > key
+ * 		aj+1 = aj
+ * 		j := j-1
+ * 	j := j+1
+ * 	aj = key
+ * {a1, a2, ... , an is in increasing order}
+ *
+ */
+
+
 
 #include <iostream>
 using namespace std;
