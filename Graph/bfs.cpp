@@ -31,8 +31,7 @@ procedure BFS(G,source):
 */
 
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -71,8 +70,8 @@ int main() {
         cin >> a >> b;  // There is an edge between a and b
         // If the graph is directed, we add b as a child of a, a.push_back(b)
         // If the graph isn't directed, we add 'b' as a child of 'a' as well as 'a' as a child of 'b', a.push_back(b) and b.push_back(a)
-        a.push_back(b);
-        b.push_back(a);
+        adj[a].push_back(b);
+        adj[b].push_back(a);
     }
 
     int v; // We will make bfs call from note v
