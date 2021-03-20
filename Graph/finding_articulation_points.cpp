@@ -41,9 +41,10 @@ void findAP(int node, int parent) {
             }
             children++;
         }
-        if(parent == -1 and children > 1) {
+        
+    }
+    if(parent == -1 and children > 1) {
             printf("%d is a cut vertex\n", node);
-        }
     }
 }
 
